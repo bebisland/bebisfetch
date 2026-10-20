@@ -2,6 +2,8 @@
 
 A lightweight, colorful, and fast system information tool written in Go.
 
+<img width="1191" height="476" alt="dms_capture_1792480161005" src="https://github.com/user-attachments/assets/fb7f784d-8580-40ee-99fa-010e2630b1e3" />
+
 ## 📄 License
 
 bebisfetch is licensed under the [MIT license](./LICENSE).
