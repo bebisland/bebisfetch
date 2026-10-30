@@ -1,6 +1,6 @@
 # 🍼 bebisfetch
 
-A lightweight, colorful, and fast system information tool written in Go.
+A lightweight, colorful, and fast system information tool written in C#.
 
 <img width="1191" height="476" alt="dms_capture_1792480161005" src="https://github.com/user-attachments/assets/fb7f784d-8580-40ee-99fa-010e2630b1e3" />
 
@@ -17,9 +17,8 @@ bebisfetch is licensed under the [MIT license](./LICENSE).
 
 ## 📦 Requirements
 
-* Written for Linux
-* Written in Go 1.27.1
+* .NET 10
 
 ## 🛠️ Building
 
-Just run `./build.sh`, you should get an executable `bebisfetch` file.
+Just `dotnet run`
