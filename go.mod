@@ -1,6 +1,6 @@
 module fetch
 
-go 1.27.1
+go 1.26.0
 
 require github.com/shirou/gopsutil/v3 v3.24.5
 

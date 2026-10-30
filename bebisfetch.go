@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"syscall"
@@ -81,6 +84,57 @@ func align(rows [][3]string) []string {
 	return out
 }
 
+func parse_text(path string) (map[string]string, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+
+	m := make(map[string]string)
+	s := bufio.NewScanner(f)
+	for s.Scan() {
+		line := strings.TrimSpace(s.Text())
+		if line == "" || line[0] == '#' {
+			continue
+		}
+		k, v, ok := strings.Cut(line, "=")
+		if !ok {
+			continue
+		}
+		m[strings.TrimSpace(k)] = strings.Trim(strings.TrimSpace(v), `"'`)
+	}
+	return m, s.Err()
+}
+
+func get_pkgs(pkgParts []string) []string{
+	os_release, _ := parse_text("/etc/os-release")
+	count := 0
+	var pkg_man string
+
+	switch os_release["ID"] {
+
+	case "fedora":
+		out, _ := exec.Command("rpm", "-qa").Output()
+		count = bytes.Count(out, []byte{'\n'})
+		pkg_man = "dnf"
+
+	case "arch":
+		pacman, _ := os.ReadDir("/var/lib/pacman/local")
+		count = len(pacman)
+		pkg_man = "pacman"
+
+	default:
+		count = 0
+	}
+
+	if count := count; count > 0 {
+		pkgParts = append(pkgParts, color(97, fmt.Sprint(count))+color(36, " " + pkg_man))
+	}
+
+	return pkgParts;
+}
+
 func main() {
 
 	// Fetch system information
@@ -90,12 +144,7 @@ func main() {
 
 	var pkgParts []string
 
-	if pacman, err := os.ReadDir("/var/lib/pacman/local"); err == nil {
-
-		if count := len(pacman); count > 0 {
-			pkgParts = append(pkgParts, color(97, fmt.Sprint(count))+color(36, " pacman"))
-		}
-	}
+	pkgParts =  get_pkgs(pkgParts)
 
 	flatpak := 0
 	for _, dir := range []string{"/var/lib/flatpak/app", "/var/lib/flatpak/runtime"} {
