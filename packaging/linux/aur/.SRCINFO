@@ -1,0 +1,15 @@
+pkgbase = bebisfetch
+	pkgdesc = A lightweight, colorful, and fast system information tool written in C#.
+	pkgver = 0.2.0
+	pkgrel = 1
+	url = https://github.com/bebisland/bebisfetch
+	arch = x86_64
+	license = MIT
+	makedepends = dotnet-sdk
+	makedepends = clang
+	makedepends = zlib
+	depends = glibc
+	source = bebisfetch-0.2.0.tar.gz::https://github.com/bebisland/bebisfetch/archive/refs/tags/v0.2.0.tar.gz
+	sha256sums = 23497c41d8bf24ee14d788bc43a775c178dac542b438e1cdf9a0ec9e155b7d35
+
+pkgname = bebisfetch
