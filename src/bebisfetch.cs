@@ -119,7 +119,7 @@ if (linux)
         if (flatpakPackages > 0)
             parts.Add($"{reset}{flatpakPackages}{magenta} flatpak");
 
-        var packages = Join(", ", parts);
+        var packages = Join($"{gray}, ", parts);
 
         info.Add($"󰏖 {gray}: {packages}");
     }
