@@ -24,4 +24,38 @@
 		<RuntimeHostConfigurationOption Include="System.GC.RetainVM" Value="false"/>
 	</ItemGroup>
 
+	<!--Meta-->
+	<PropertyGroup>
+		<!-- Var -->
+		<AppVersion>0.2.1</AppVersion>
+		<!-- Identity -->
+		<AssemblyName>bebisfetch</AssemblyName>
+		<RootNamespace>bebisfetch</RootNamespace>
+		<Product>bebisfetch</Product>
+		<Title>bebisfetch</Title>
+		<Description>A lightweight, colorful, and fast system information tool written in C#.</Description>
+		<Company>bebisland</Company>
+		<Authors>Furkan Kerim Karademir</Authors>
+		<Copyright>Copyright (c) 2026 Bebisland</Copyright>
+		<!-- <Trademark></Trademark> -->
+		<NeutralLanguage>en</NeutralLanguage>
+		<!-- Version -->
+		<Version>$(AppVersion)</Version>
+		<AssemblyVersion>$(AppVersion).0</AssemblyVersion>
+		<FileVersion>$(AppVersion).0</FileVersion>
+		<InformationalVersion>$(AppVersion)</InformationalVersion>
+		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+		<!-- Repo -->
+		<RepositoryUrl>https://github.com/bebisland/bebisfetch</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectUrl>https://github.com/bebisland/bebisfetch</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>bebis;bebisfetch;command-line;fetch;terminal</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<!-- <PackageReleaseNotes></PackageReleaseNotes> -->
+		<!-- Compile -->
+		<Deterministic>true</Deterministic>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
 </Project>
